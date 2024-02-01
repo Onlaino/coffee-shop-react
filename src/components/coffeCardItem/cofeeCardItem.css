@@ -1,0 +1,15 @@
+.card {
+	border: none;
+	width: 220px;
+	min-height: 260px;
+	box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.25);
+	transition: scale .6s;
+	&:hover {
+		cursor: pointer;
+		scale: 1.1;
+	}
+}
+
+.card-into {
+	padding :22px 23px 15px;
+}

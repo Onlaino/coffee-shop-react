@@ -1,0 +1,12 @@
+.our-best-section {
+	background: url("../../resources/img/backgrounds/our_best_bg.png") center center/cover no-repeat;
+}
+
+.our-best {
+	padding : 80px 320px 110px;
+	opacity: 100%;
+}
+
+.cards-wrapper {
+
+}
