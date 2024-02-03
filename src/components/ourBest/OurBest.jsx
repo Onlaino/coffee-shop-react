@@ -3,8 +3,9 @@ import './ourBest.css'
 import {coffeeData} from "../../data-cofee.jsx";
 import {useEffect, useState} from "react";
 
-const OurBest = () => {
+const OurBest = (props) => {
 	const [products, setProducts] = useState([]);
+	const {cartItems, setCartItems} = props;
 	useEffect(() => {
 		setProducts(() => {
 			return products.concat(coffeeData);
@@ -20,6 +21,8 @@ const OurBest = () => {
 						products.map(item => {
 							return (
 								<CoffeeCardItem
+									cartItems={cartItems}
+									setCartItems={setCartItems}
 									id={item.id}
 									key={item.id}
 									name={item.name}

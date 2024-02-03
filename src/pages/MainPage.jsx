@@ -2,15 +2,17 @@ import MainHeader from "../components/mainHeader/MainHeader.jsx";
 import AppFooter from "../components/appFooter/AppFooter.jsx";
 import AboutUs from "../components/aboutUs/AboutUs.jsx";
 import OurBest from "../components/ourBest/OurBest.jsx";
+import AnimatedScroll from "../components/animatedRoute/animatedScroll.jsx";
 
-const MainPage = () => {
+const MainPage = (props) => {
+	const {cartItems, setCartItems} = props
 	return (
 		<>
-
-			<MainHeader/>
-			<AboutUs/>
-			<OurBest/>
-			<AppFooter/>
+				<AnimatedScroll/>
+				<MainHeader cartItems={cartItems} setCartItems={setCartItems}/>
+				<AboutUs/>
+				<OurBest cartItems={cartItems} setCartItems={setCartItems}/>
+				<AppFooter/>
 
 		</>
 	)

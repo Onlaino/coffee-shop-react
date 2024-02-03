@@ -1,11 +1,31 @@
-import beans from '../../resources/icons/coffee-beans.svg'
 import './navComponent.css'
 import {Link} from "react-router-dom";
+import {useState} from "react";
+import Cart from "../Cart/Cart.jsx";
 
 const NavComponent = (props) => {
+	const [isCartOpen, setIsCartOpen] = useState(false);
+	const {cartItems, setCartItems} = props
+	const handleOpenCart = () => {
+		if  (!isCartOpen) {
+			document.body.style.overflow = `hidden`
+		} else {
+			document.body.style.overflow = `auto`
+		}
+		setIsCartOpen(!isCartOpen);
+	}
 	return (
 		<nav>
+			{isCartOpen
+				&& <Cart
+					isCartOpen={isCartOpen}
+					handleOpenCart={handleOpenCart}
+					cartItems={cartItems}
+					setCartItems={setCartItems}
+				/>}
+			{/* eslint-disable-next-line react/prop-types */}
 			<div className={props.divClazz}>
+				{/* eslint-disable-next-line react/prop-types */}
 				<ul className={props.clazz}>
 					<li>
 						{/* eslint-disable-next-line react/prop-types */}
@@ -16,7 +36,7 @@ const NavComponent = (props) => {
 						<Link to={'/aboutOurBeans'}>Our coffee</Link>
 					</li>
 					<li>
-						<a href="#">For your pleasure</a>
+						<a className='cursor-pointer' onClick={handleOpenCart}>Cart</a>
 					</li>
 				</ul>
 			</div>

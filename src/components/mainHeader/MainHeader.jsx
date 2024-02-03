@@ -4,10 +4,13 @@ import DividerWhite from "../divider/Divider.jsx";
 
 import './mainHeader.css'
 
-const MainHeader = () => {
+const MainHeader = (props) => {
+	const {cartItems, setCartItems} = props;
 	return (
 		<header className='main-header'>
 			<NavComponent
+				cartItems={cartItems}
+				setCartItems={setCartItems}
 				img={'../src/resources/icons/coffee-beans.svg'}
 				clazz={'text-xs font-normal d-flex gap-x-12 pt-5 pl-44 pr-96 text-white relative'}
 				divClazz={'relative'}

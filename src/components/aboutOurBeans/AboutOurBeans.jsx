@@ -1,10 +1,15 @@
 import DividerBlack from "../divider/DividerBlack.jsx";
 import coffeeGirl from '../../resources/img/backgrounds/coffee-girl.jpg'
+// style nd animate
 import './aboutOurBeans.css';
+import  {motion} from "framer-motion";
+
 
 const AboutOurBeans = () => {
+
+
 	return (
-		<section className='about-our-beans-section'>
+		<motion.section className='about-our-beans-section'>
 			<div className='d-flex justify-center about-our-beans gap-x-20'>
 				<div>
 					<img className='about-our-beans-image'  src={coffeeGirl} alt=""/>
@@ -22,7 +27,7 @@ const AboutOurBeans = () => {
 					</div>
 				</div>
 			</div>
-		</section>
+		</motion.section>
 	)
 }
 

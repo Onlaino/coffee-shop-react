@@ -6,7 +6,8 @@
 	transition: scale .6s;
 	&:hover {
 		cursor: pointer;
-		scale: 1.1;
+		box-shadow: 15px 15px 15px 0 rgba(0, 0, 0, 0.25);
+
 	}
 }
 

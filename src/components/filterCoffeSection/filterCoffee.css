@@ -30,6 +30,11 @@
 	}
 
 	&:active {
-		background-color: #804030;
+		background-color: rgba(128, 64, 48, 0.25);
 	}
+}
+
+.filter__coffee-tab-active {
+	box-shadow: 0 0 15px 10px rgba(217, 179, 133, 0.41);
+	background-color: rgba(128, 64, 48, 0.25);
 }

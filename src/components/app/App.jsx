@@ -1,21 +1,18 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {BrowserRouter} from 'react-router-dom';
+import AnimatedRoute from "../animatedRoute/AnimatedRoute.jsx";
+
+import {useState} from "react";
 
 
-import MainPage from "../../pages/MainPage.jsx";
-import AboutOurBeansPage from "../../pages/AboutOurBeansPage.jsx";
-import AboutItPage from "../../pages/AboutItPage.jsx";
+
 
 const App = () => {
+	const [cartItems, setCartItems] = useState([]);
 	return (
 		<main>
 			<BrowserRouter>
-				<Routes>
-					<Route path='/' element={<MainPage/>}/>
-					<Route path='/aboutOurBeans' element={<AboutOurBeansPage/>}/>
-					<Route path='/product/:id' element={<AboutItPage/>}/>
-				</Routes>
+					<AnimatedRoute cartItems={cartItems} setCartItems={setCartItems}/>
 			</BrowserRouter>
-
 		</main>
 	)
 }
