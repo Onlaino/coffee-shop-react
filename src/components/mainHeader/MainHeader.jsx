@@ -5,10 +5,12 @@ import DividerWhite from "../divider/Divider.jsx";
 import './mainHeader.css'
 
 const MainHeader = (props) => {
-	const {cartItems, setCartItems} = props;
+	const {cartItems, setCartItems, plus, setPlus} = props;
 	return (
 		<header className='main-header'>
 			<NavComponent
+				plus={plus}
+				setPlus={setPlus}
 				cartItems={cartItems}
 				setCartItems={setCartItems}
 				img={'../src/resources/icons/coffee-beans.svg'}

@@ -10,7 +10,7 @@ const FilterCoffee = (props) => {
 	const [coffee, setCoffee] = useState(coffeeFilterData);
 	const [selectedCountry, setSelectedCountry] = useState('');
 	const [inputCountryValue, setInputCountryValue] = useState('');
-	const {setCartItems, cartItems} = props;
+	const {setCartItems, cartItems, plus, setPlus} = props;
 
 	const filterByCountry = (country) => {
 		if (selectedCountry === country) {
@@ -93,6 +93,8 @@ const FilterCoffee = (props) => {
 						{coffee.map((item, index) => {
 							return (
 								<CoffeeCardItem
+									plus={plus}
+									setPlus={setPlus}
 									cartItems={cartItems}
 									setCartItems={setCartItems}
 									id={item.id}

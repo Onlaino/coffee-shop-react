@@ -26,7 +26,7 @@ const pageTransitionVariants = {
 };
 
 const AnimatedRoute = (props) => {
-	const {setCartItems, cartItems} = props
+	const {setCartItems, cartItems, plus, setPlus} = props
 	const location = useLocation();
 	return (
 		<AnimatePresence mode='wait'>
@@ -39,7 +39,12 @@ const AnimatedRoute = (props) => {
 						variants={pageTransitionVariants}
 						transition={{ type: "spring", duration: 0.5 }}
 					>
-						<MainPage cartItems={cartItems} setCartItems={setCartItems}/>
+						<MainPage
+							cartItems={cartItems}
+							setCartItems={setCartItems}
+							plus={plus}
+							setPlus={setPlus}
+						/>
 					</motion.div>
 				}/>
 				<Route path='/aboutOurBeans' element={
@@ -50,7 +55,12 @@ const AnimatedRoute = (props) => {
 						variants={pageTransitionVariants}
 						transition={{ type: "spring", duration: 0.5 }}
 					>
-						<AboutOurBeansPage cartItems={cartItems} setCartItems={setCartItems}/>
+						<AboutOurBeansPage
+							cartItems={cartItems}
+							setCartItems={setCartItems}
+							plus={plus}
+							setPlus={setPlus}
+						/>
 					</motion.div>
 				}/>
 				<Route path='/product/:id' element={

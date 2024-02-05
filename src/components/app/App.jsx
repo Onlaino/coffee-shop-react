@@ -8,10 +8,14 @@ import {useState} from "react";
 
 const App = () => {
 	const [cartItems, setCartItems] = useState([]);
+
 	return (
 		<main>
 			<BrowserRouter>
-					<AnimatedRoute cartItems={cartItems} setCartItems={setCartItems}/>
+					<AnimatedRoute
+						cartItems={cartItems}
+						setCartItems={setCartItems}
+					/>
 			</BrowserRouter>
 		</main>
 	)

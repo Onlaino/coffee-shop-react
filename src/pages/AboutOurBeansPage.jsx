@@ -7,14 +7,22 @@ import AnimatedScroll from "../components/animatedRoute/animatedScroll.jsx";
 import {useState} from "react";
 
 const AboutOurBeansPage = (props) => {
-	const {cartItems, setCartItems} = props;
+	const {cartItems, setCartItems, plus, setPlus} = props;
 	console.log(cartItems)
 	return (
 		<>
 			<AnimatedScroll/>
-			<OurCoffeeHeader cartItems={cartItems} setCartItems={setCartItems}/>
+			<OurCoffeeHeader
+				cartItems={cartItems}
+				setCartItems={setCartItems}/>
 			<AboutOurBeans/>
-			<FilterCoffee cartItems={cartItems} setCartItems={setCartItems}/>
+			<FilterCoffee
+				cartItems={cartItems}
+				setCartItems={setCartItems}
+				setPlus={setPlus}
+				plus={plus}
+			/>
+
 			<AppFooter/>
 		</>
 	)

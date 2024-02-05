@@ -11,10 +11,17 @@ const CoffeeCardItem = (props) => {
 	// eslint-disable-next-line react/prop-types
 	const {imgId, price, name, country, id} = props;
 
+	const isItemInCart = (cartItems, itemId) => {
+		return cartItems.some(item => item.id === itemId);
+	};
+
 	const handleAddToCart = () => {
-		setCartItems(prevState => [...prevState, {id, name, price, imgId}]);
+		if (!isItemInCart(cartItems, id)) {
+			setCartItems(prevState => [...prevState, {id, name, price, imgId}]);
+		}
 		setPlus(!plus);
-	}
+	};
+
 	return (
 			<motion.div className="card w-56 bg-opacity-50 bg-white">
 				<div className="card-into text-center">
@@ -22,32 +29,33 @@ const CoffeeCardItem = (props) => {
 					<p className={'text-center mt-3.5 text-sm'}>{name}</p>
 					{country ? <p className={'mt-2.5 text-right text-sm'}>{country}</p> : null}
 					<p className={'mt-2.5 text-end text-sm'}>{price}$</p>
-					<Link to={`/product/${id}`}>
-						<div
-							className='ml-36 bg-white rounded-full text-center w-10 border-2 mt-2.5 d-flex justify-end items-end hover:scale-110 inline-block'>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="24"
-								height="24"
-								viewBox="0 0 24 24"
-								fill="orange"
-								stroke="currentColor"
-								strokeWidth="2"
-								strokeLinecap="round"
-								strokeLinejoin="round"
-							>
-								<path d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-							</svg>
-						</div>
-					</Link>
-					{plus
-						? <Plus
-							onClick={handleAddToCart}
-						/>
-						: <Minus
-							onClick={handleAddToCart}
-						/>}
-
+					<div className='d-flex justify-between mt-3'>
+						<Link to={`/product/${id}`}>
+							<div
+								className='cursor-pointer hover:scale-110 active:scale-90'>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="orange"
+									stroke="currentColor"
+									strokeWidth="2"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+								>
+									<path d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+								</svg>
+							</div>
+						</Link>
+						{plus
+							? <Plus
+								onClick={handleAddToCart}
+							/>
+							: <Minus
+								onClick={handleAddToCart}
+							/>}
+					</div>
 				</div>
 			</motion.div>
 	)
@@ -55,7 +63,7 @@ const CoffeeCardItem = (props) => {
 
 const Minus = (props) => {
 	return (
-		<div className={'text-right'} onClick={props.onClick}>
+		<div className={'text-right cursor-pointer hover:scale-110 active:scale-90'} onClick={props.onClick}>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="24"
@@ -75,7 +83,7 @@ const Minus = (props) => {
 }
 const Plus = (props) => {
 	return (
-		<div className={'text-right'} onClick={props.onClick}>
+		<div className={'text-right cursor-pointer hover:scale-110 active:scale-90'} onClick={props.onClick}>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="24"

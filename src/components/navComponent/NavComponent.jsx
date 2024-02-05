@@ -5,7 +5,7 @@ import Cart from "../Cart/Cart.jsx";
 
 const NavComponent = (props) => {
 	const [isCartOpen, setIsCartOpen] = useState(false);
-	const {cartItems, setCartItems} = props
+	const {cartItems, setCartItems, plus, setPlus} = props
 	const handleOpenCart = () => {
 		if  (!isCartOpen) {
 			document.body.style.overflow = `hidden`
@@ -18,6 +18,8 @@ const NavComponent = (props) => {
 		<nav>
 			{isCartOpen
 				&& <Cart
+					plus={plus}
+					setPlus={setPlus}
 					isCartOpen={isCartOpen}
 					handleOpenCart={handleOpenCart}
 					cartItems={cartItems}
