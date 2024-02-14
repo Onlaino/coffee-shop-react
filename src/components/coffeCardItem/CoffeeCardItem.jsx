@@ -29,7 +29,7 @@ const CoffeeCardItem = (props) => {
 					<p className={'text-center mt-3.5 text-sm'}>{name}</p>
 					{country ? <p className={'mt-2.5 text-right text-sm'}>{country}</p> : null}
 					<p className={'mt-2.5 text-end text-sm'}>{price}$</p>
-					<div className='d-flex justify-between mt-3'>
+					<div className='d-flex justify-around mt-3'>
 						<Link to={`/product/${id}`}>
 							<div
 								className='cursor-pointer hover:scale-110 active:scale-90'>
