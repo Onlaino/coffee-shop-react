@@ -8,7 +8,7 @@ import {useState} from "react";
 
 const App = () => {
 	const [cartItems, setCartItems] = useState([]);
-
+	console.log('aaa');
 	return (
 		<main>
 			<BrowserRouter>
